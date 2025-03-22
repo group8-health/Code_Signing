@@ -17,67 +17,82 @@ This project shows how to use digital signatures to keep software safe. We use a
   ```bash
   pip install ecdsa
 
-Installation Steps
-Install Python 3.x: Ensure Python is installed on your computer.
-Install Dependencies: Open your terminal or command prompt and run:
-bash
-Copy
-pip install ecdsa
-Download the Code: Download or clone the project code to your computer.
-Project Structure
-product_program.py: The main Python script that:
-Checks for existing keys or generates new ECDSA keys.
-Creates a product program that prints "I am a software made by [Student ID]".
-Signs the product program.
-Validates the signature using a validator.
-Simulates an attack by modifying the product to show that the signature fails.
-private_key.pem: File storing the private key (generated automatically).
-public_key.pem: File storing the public key (generated automatically).
-program_signature.sig: File storing the digital signature (generated automatically).
-How to Run the Project
-Open your terminal or command prompt.
-Change the directory to where the project files are located.
-Run the following command:
-bash
-Copy
-python product_program.py
-The script will:
-Generate and display the keys.
-Print the product program message.
-Sign the product.
-Verify the signature and print "Code certificate valid: execution allowed" if it is valid.
-Simulate an attack by adding malicious code, which will cause the validator to print "Code certificate invalid: execution denied".
-How the Code Works
-Key Generation:
-The script checks if key files exist. If not, it generates a new key pair using the SECP256k1 curve and saves them as PEM files.
+```markdown
+# Digital Signature Project: Secure Software Execution
 
-Product Program:
-A simple string that prints "I am a software made by [Student ID]". Replace [Student ID] with your actual student ID.
+## Installation Steps
 
-Digital Signing:
-The script calculates a SHA-256 hash of the product program and signs this hash using the private key. The resulting signature is stored in a file.
+1. **Install Python 3.x**: Ensure Python is installed on your computer.
+2. **Install Dependencies**: Open your terminal or command prompt and run:
+   ```bash
+   pip install ecdsa
+   ```
+3. **Download the Code**: Download or clone the project code to your computer.
 
-Signature Verification:
-The validator reads the public key and uses it to check the signature against the hash of the product program. If they match, it confirms the product is genuine and safe to run.
+## Project Structure
 
-Attack Simulation:
-The script modifies the product by adding a line that prints "Malicious code!" which causes the signature verification to fail. This demonstrates how tampered software is blocked.
+- **`product_program.py`**: The main Python script that:
+  - Checks for existing keys or generates new ECDSA keys.
+  - Creates a product program that prints "I am a software made by [Student ID]".
+  - Signs the product program.
+  - Validates the signature using a validator.
+  - Simulates an attack by modifying the product to show that the signature fails.
 
-Demo Video
+- **`private_key.pem`**: File storing the private key (generated automatically).
+- **`public_key.pem`**: File storing the public key (generated automatically).
+- **`program_signature.sig`**: File storing the digital signature (generated automatically).
+
+## How to Run the Project
+
+1. Open your terminal or command prompt.
+2. Change the directory to where the project files are located.
+3. Run the following command:
+   ```bash
+   python product_program.py
+   ```
+   The script will:
+   - Generate and display the keys.
+   - Print the product program message.
+   - Sign the product.
+   - Verify the signature and print "Code certificate valid: execution allowed" if valid.
+   - Simulate an attack by adding malicious code, causing the validator to print "Code certificate invalid: execution denied".
+
+## How the Code Works
+
+### Key Generation
+- The script checks if key files exist. If not, it generates a new key pair using the **SECP256k1** curve and saves them as PEM files.
+
+### Product Program
+- A simple string that prints "I am a software made by [Student ID]". Replace `[Student ID]` with your actual student ID.
+
+### Digital Signing
+- The script calculates a **SHA-256 hash** of the product program and signs this hash using the private key. The resulting signature is stored in a file.
+
+### Signature Verification
+- The validator reads the public key and checks the signature against the hash of the product program. If they match, it confirms the product is genuine and safe to run.
+
+### Attack Simulation
+- The script modifies the product by adding a line that prints "Malicious code!" which causes the signature verification to fail. This demonstrates how tampered software is blocked.
+
+## Demo Video
+
 A demonstration video of this project is available. The video explains:
+- How code signing works.
+- How keys are generated.
+- How the product is signed.
+- How the validator checks the signature.
+- What happens when the product is tampered with.
 
-How code signing works.
-How keys are generated.
-How the product is signed.
-How the validator checks the signature.
-What happens when the product is tampered with.
 You can watch the video here: [Your Demo Video Link]
 
-Conclusion
-This project shows how digital signatures protect software from tampering. By signing the product and verifying its signature, we ensure that only genuine and unaltered code is executed, which is essential for software security.
+## Conclusion
 
-Contact Information
+This project demonstrates how digital signatures protect software from tampering. By signing the product and verifying its signature, we ensure that only genuine and unaltered code is executed, which is essential for software security.
+
+## Contact Information
+
 If you have any questions or suggestions, please contact:
 
-Name: [Your Name]
-Email: [Your Email]
+- **Name**: [Your Name]
+- **Email**: [Your Email]
+```
